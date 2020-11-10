@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynlp-pod
+  labels:
+    app: mynlp-pod
+spec:
+  containers:
+  - name: mynlp-pod
+    image: sahil1999/nlp-python
+    ports:
+    - name: nlp-port
+      containerPort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mynlp-svc
+spec:
+  selector:
+    app: mynlp-pod
+  ports:
+  - port: 31001
+    nodePort: 31001
+    targetPort: nlp-port
+    protocol: TCP
+  type: NodePort

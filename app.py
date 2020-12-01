@@ -49,7 +49,8 @@ clf = LogisticRegression(C=0.1, class_weight=None, dual=False, fit_intercept=Tru
                    multi_class='auto', n_jobs=None, penalty='l2',
                    random_state=None, solver='liblinear', tol=0.0001, verbose=0,
                    warm_start=False)
-clf.fit(X,y)
+#clf.fit(X,y)
+clf.fit(X_train,y_train)
 
 
 @app.route('/')
